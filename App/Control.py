@@ -20,7 +20,7 @@ class ControlScreens():
         vw.MorseToText()
 
     def showHistoricoMorse(self):
-        print('Historico')
+        pass
     
     def showCodesMorse(self):
         pass
@@ -28,11 +28,11 @@ class ControlScreens():
     def showText(self):
         vw.TextToMorse()
 
-    def showResultMorse(self):
-        vw.ResultMorseScreen()
+    def showResultMorse(self, result):
+        vw.ResultMorseScreen(result)
 
-    def showResultText(self):
-        vw.ResultTextScreen()
+    def showResultText(self, result):
+        vw.ResultTextScreen(result)
 
 
 class ControlModel():

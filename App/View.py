@@ -77,7 +77,7 @@ class MorseToText():
     def enterHandler(self):
         code = self.entryCodeMorse.get()
         word = ctrl.ButtonFunction().buttonConvertMorse(code)
-        resultado = ctrl.ControlScreens().
+        resultado = ctrl.ControlScreens().showResultMorse(word)
         
     def clearHandler(self):
         code = ctrl.ButtonFunction().buttonClear(self.entryCodeMorse)
@@ -130,7 +130,7 @@ class TextToMorse():
     def enterHandler(self):
         code = self.entryText.get()
         word = ctrl.ButtonFunction().buttonConvertText(code)
-        result = ResultTextScreen(word)
+        result = ctrl.ControlScreens().showResultText(word)
         
     def clearHandler(self):
         code = ctrl.ButtonFunction().buttonClear(self.entryCodeMorse)
@@ -149,7 +149,7 @@ class ResultMorseScreen():
         self.window.mainloop()
 
     def screen(self):
-        self.window.title("TextToMorse")
+        self.window.title("Result in text")
         self.window.configure(background='lightslategray')
         self.window.geometry('400x400')
         self.window.resizable(True, True)
@@ -160,7 +160,7 @@ class ResultMorseScreen():
                     command=ctrl.ControlScreens().showHistoricoMorse)
         self.fileMenu.add_command(label="Lista dos codigos", \
                     command=ctrl.ControlScreens().showCodesMorse)
-        self.menubar.add_cascade(label="file", \
+        self.menubar.add_cascade(label="File", \
                     menu=self.fileMenu)
         
         self.window.config(menu=self.menubar)
@@ -180,7 +180,7 @@ class ResultTextScreen():
         self.window.mainloop()
 
     def screen(self):
-        self.window.title("TextToMorse")
+        self.window.title("Result in morse")
         self.window.configure(background='lightslategray')
         self.window.geometry('400x400')
         self.window.resizable(True, True)
