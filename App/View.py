@@ -52,9 +52,9 @@ class MorseToText():
         self.window.minsize(width=200, height=200)
 
         self.fileMenu.add_command(label="Historic", \
-                    command=ctrl.ControlScreens().showHistoricoMorse)
+                    command=self.enterHistoric)
         self.fileMenu.add_command(label="Codes list", \
-                    command=ctrl.ControlScreens().showCodesMorse)
+                    command=self.enterCodesList)
         self.menubar.add_cascade(label="File", \
                     menu=self.fileMenu)
         
@@ -78,6 +78,13 @@ class MorseToText():
         code = self.entryCodeMorse.get()
         word = ctrl.ButtonFunction().buttonConvertMorse(code)
         resultado = ctrl.ControlScreens().showResultMorse(word)
+
+    def enterCodesList(self):
+        str = ctrl.ButtonFunction().buttonCodeList()
+        self.mostraJanela('Morse Code - Letters', str)
+
+    def enterHistoric(self):
+        pass
         
     def clearHandler(self):
         code = ctrl.ButtonFunction().buttonClear(self.entryCodeMorse)
@@ -157,7 +164,7 @@ class ResultMorseScreen():
         self.window.minsize(width=200, height=200)
 
         self.fileMenu.add_command(label="Historico", \
-                    command=ctrl.ControlScreens().showHistoricoMorse)
+                    command=ctrl.ControlScreens().showHistoricMorse)
         self.fileMenu.add_command(label="Lista dos codigos", \
                     command=ctrl.ControlScreens().showCodesMorse)
         self.menubar.add_cascade(label="File", \
@@ -202,5 +209,8 @@ class ResultTextScreen():
 
     
 
-        
+
+
+
+
 

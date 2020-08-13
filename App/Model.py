@@ -91,9 +91,19 @@ class Dictionary():
 class Historic():
     def __init__(self):
         self.listHistoric = []
+        
 
-    def addHistoric(self, result):
-        self.listHistoric.append(result)
+    def addHistoric(self, historicCode):
+        self.listHistoric.append(historicCode)
+        print('Add')
+        print(self.listHistoric)
+
+    def getListHistoric(self):
+        str = ''
+        for code in self.listHistoric:
+            str += code
+        return str
+        
 
     
 

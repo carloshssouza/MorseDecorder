@@ -2,6 +2,7 @@ from tkinter import *
 import View as vw
 import Model as mod
 import ast
+from datetime import date
 
 
 class ControlScreens():
@@ -19,7 +20,7 @@ class ControlScreens():
         
         vw.MorseToText()
 
-    def showHistoricoMorse(self):
+    def showHistoricMorse(self):
         pass
     
     def showCodesMorse(self):
@@ -53,6 +54,21 @@ class ButtonFunction():
     def buttonMorse(self):
         self.ctrlButtonScreens.showMorse()
 
+    def buttonCodeList(self):
+        CodeList = mod.Dictionary().getCodeMorse()
+        str = ''
+        for key, value in CodeList.items():
+            str += key + '   :  ' + value + '\n'
+        return str
+
+    def buttonHistoric(self):
+        pass
+            
+        
+    def buttonClearHistoric(self):
+        mod.Historic().listHistoric.clear()
+        
+        
     def buttonText(self):
         self.ctrlButtonScreens.showText()
 
@@ -80,6 +96,12 @@ class ButtonFunction():
 
         for word in string2:
             result += dicMorse[f'{word}']
+        
+
+        historicCode = code + ' : ' + result
+        mod.Historic().addHistoric(historicCode)
+        print(historicCode)
+        
         return result
 
     def buttonConvertText(self, code):
